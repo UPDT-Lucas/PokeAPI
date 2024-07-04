@@ -1,0 +1,67 @@
+<div class="flex-container">
+  <shared-header></shared-header>
+  <div class="container">
+    <div class="left-side">
+      <swiper-container class="swiper" loop="true" slides-per-view="3" effect="coverflow"
+        coverflow-effect-slide-shadows="false" coverflow-effect-scale="0.8" grab-cursor="true" keyboard="true"
+        mousewheel="true" speed="500">
+        @for (slide of slides; track $index) {
+        <swiper-slide class="each-slide">
+          <img [src]="slides[$index]" alt="">
+        </swiper-slide>
+        }
+      </swiper-container>
+      <div class="buttons-container">
+        <shared-button
+        [routerLink]="'/pokedex'"
+        text="Change"
+        [color]="getColor()"
+        [hoverColor]="getBackgroundColor()">
+        </shared-button>
+        <shared-button
+        [routerLink]="'/details'"
+        text="Details"
+        [color]="getColor()"
+        [hoverColor]="getBackgroundColor()">
+        </shared-button>
+      </div>
+    </div>
+    <div class="right-side">
+      <div class="statistics">
+        <div class="strengths">
+          <h1>Strengths</h1>
+          <div class="types-container">
+            <shared-badge text="Electric" color="#E9DA89">
+            </shared-badge>
+            <shared-badge text="Electric" color="#E9DA89">
+            </shared-badge>
+            <shared-badge text="Water" color="#89D2E9">
+            </shared-badge>
+          </div>
+        </div>
+        <div class="weaknesses">
+          <h1>Weaknesses</h1>
+          <div class="types-container">
+            <shared-badge text="Electric" color="#E9DA89">
+            </shared-badge>
+            <shared-badge text="Electric" color="#E9DA89">
+            </shared-badge>
+            <shared-badge text="Electric" color="#E9DA89">
+            </shared-badge>
+            <shared-badge text="Electric" color="#E9DA89">
+            </shared-badge>
+            <shared-badge text="Water" color="#89D2E9">
+            </shared-badge>
+            <shared-badge text="Water" color="#89D2E9">
+            </shared-badge>
+            <shared-badge text="Water" color="#89D2E9">
+            </shared-badge>
+            <shared-badge text="Water" color="#89D2E9">
+            </shared-badge>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

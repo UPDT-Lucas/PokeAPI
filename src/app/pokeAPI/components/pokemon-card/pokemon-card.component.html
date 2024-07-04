@@ -1,0 +1,20 @@
+<div
+  class="pokemon-card"
+  [routerLink]="['/details', pokemon.id]"
+  [style.backgroundColor]="changeCardColor(pokemon.types[0].type.name)">
+  <img
+    src={{pokemon.sprites.front_default}}
+    alt="pokemon image"
+    class="pokemon-image">
+  <span>
+    {{pokemon.name | titlecase}}
+  </span>
+  <div class="types-container">
+    @for (type of pokemon.types; track $index) {
+      <shared-badge
+        [text]="type.type.name | titlecase"
+        [color]="changeBadgeColor(type.type.name)">
+      </shared-badge>
+    }
+  </div>
+</div>

@@ -1,0 +1,33 @@
+<div class="flex-container">
+  <shared-header></shared-header>
+  <div
+    class="container"
+    infiniteScroll
+    [infiniteScrollDistance]="1"
+    [infiniteScrollThrottle]="1000"
+    (scrolled)="onScroll()"
+    [scrollWindow]="false">
+
+    <div class="search-container">
+      <shared-search-box
+        icon="search"
+        placeholder="Search by name or #pokedex"
+        (onValue)="searchPokemonByName($event)">
+      </shared-search-box>
+    </div>
+
+    <div class="pokemon-list-container">
+      @if (!searchedPokemon) {
+        @for (pokemon of pokemonList; track $index) {
+          <app-pokemon-card
+            [pokemon]="pokemon">
+          </app-pokemon-card>
+        }
+      }@else{
+        <app-pokemon-card
+          [pokemon]="searchedPokemon">
+        </app-pokemon-card>
+      }
+    </div>
+
+</div>

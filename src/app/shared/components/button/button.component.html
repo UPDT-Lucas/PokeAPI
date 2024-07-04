@@ -1,0 +1,17 @@
+@if(bordered){
+  <button class="bordered"
+    [style.borderColor]="color"
+    [style.color]="hover"
+    (mouseover)="onHover()"
+    (mouseout)="onMouseOut()">
+    {{text}}
+  </button>
+}@else {
+  <button
+    [style.color]="color"
+    [style.backgroundColor]="hover"
+    (mouseover)="onHover()"
+    (mouseout)="onMouseOut()">
+    {{text}}
+  </button>
+}

@@ -1,0 +1,75 @@
+img {
+  width: 100%;
+  max-width: 100px;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.left-side,
+.right-side {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding-bottom: 1rem;
+}
+
+.swiper {
+  width: 50%;
+  max-width: 400px;
+  padding: 1.5rem 0;
+  background: rgb(84, 254, 251);
+  background: radial-gradient(circle, #54fefbb1 0%, rgba(64, 178, 248, 0.7539390756) 100%);
+  border-radius: 30px;
+}
+
+.each-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 25px;
+  height: 30px;
+}
+
+.strengths h1 {
+  color: #7bf0fd;
+}
+
+.weaknesses {
+  padding-top: 20px;
+}
+.weaknesses h1 {
+  color: #fd7b7b;
+}
+
+.types-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
+  padding-left: 30px;
+  padding-top: 5px;
+}
+
+@media (min-width: 1024px) {
+  .container {
+    flex-direction: row;
+  }
+}

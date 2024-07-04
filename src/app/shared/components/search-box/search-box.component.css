@@ -1,0 +1,39 @@
+::selection {
+  background: rgba(var(--active), 0.8);
+  color: black;
+}
+
+input {
+  border: none;
+  height: 35px;
+  width: 100%;
+  outline: none;
+  color: white;
+  padding: 0 1rem;
+  background-color: transparent;
+  &::placeholder{
+    color: #909090;
+  }
+}
+
+
+.search-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #FFFFFF10;
+  border-radius: 5px;
+  width: 100%;
+  min-width: 150px;
+  & {
+    i {
+      padding-left: 0.2rem;
+      color: white;
+    }
+    span {
+      width: 100%;
+      font-size: calc(10px + 0.390625vw);
+    }
+  }
+
+}

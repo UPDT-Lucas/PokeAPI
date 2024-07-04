@@ -1,1 +1,57 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --active: #FFFF;
+
+  --fighting: 206,64,105;
+  --psychic: 249,113,118;
+  --poison: 171,106,200;
+  --dragon: 10,109,196;
+  --ghost: 82,105,172;
+  --dark: 90,83,102;
+
+  --ground: 217,119,70;
+  --fire: 255,156,84;
+  --fairy: 236,143,230;
+  --water: 77,144,213;
+  --flying: 143,168,221;
+  --normal: 144,153,161;
+
+  --rock: 199,183,139;
+  --electric: 243,210,59;
+  --bug: 144,193,44;
+  --grass: 99,187,91;
+  --ice: 116,206,192;
+  --steel: 90,142,161;
+}
+
+body {
+  background-color: #292929;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+  font-family: Helvetica;
+}
+
+button, a, span {
+  font-size: calc(12px + 0.390625vw);
+}
+
+p {
+  font-size: calc(12px + 0.390625vw);
+}
+
+h1 {
+  font-size: calc(14px + 0.390625vw);
+}
+
+.flex-container {
+  background: linear-gradient(306deg, rgba(var(--active), 0.17) 0%, rgba(var(--active), 0.15) 33%, rgba(var(--active), 0.13) 66%);
+}
+
+.clickable {
+  transition: color 0.2s ease-in-out;
+}

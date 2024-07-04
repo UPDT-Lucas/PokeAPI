@@ -1,0 +1,19 @@
+<div class="container">
+  <span class="material-icons clickable" (click)="toggleMenu()" #toggle>
+    {{ icon }}
+  </span>
+  @if(isOpened){
+  <div class="menu-options" #menu>
+    @for (item of menuItems; track $index) {
+    <a [routerLink]="item.ref">
+      <div class="menu-item clickable">
+        <i class="material-icons">
+          {{ item.icon }}
+        </i>
+        <p>{{ item.text }}</p>
+      </div>
+    </a>
+    }
+  </div>
+  }
+</div>

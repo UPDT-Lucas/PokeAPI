@@ -1,0 +1,221 @@
+<div class="flex-container">
+  <shared-header></shared-header>
+
+  @if (selectedPokemon) {
+    <div class="container">
+
+      <!-- left side -->
+      <div class="left-side">
+        <div class="options">
+          <i class="material-icons clickable">
+            arrow_back
+          </i>
+          <shared-dropdown-menu
+            [menuItems]="menuItems"
+            icon="more_vert">
+          </shared-dropdown-menu>
+        </div>
+        <img
+          [src]="selectedPokemon.sprites.other?.['official-artwork']?.front_default"
+          alt="gengar image"
+          class="pokemon-img">
+        <div class="pokemon-name-container">
+          <i
+            class="material-icons clickable"
+            [routerLink]="['/details', getPokemonNumber(-1)]">
+            chevron_left
+          </i>
+          <h1 class="pokemon-name">
+            {{selectedPokemon.name | titlecase }} (#{{selectedPokemon.id}})
+          </h1>
+          <i
+            class="material-icons clickable"
+            [routerLink]="['/details', getPokemonNumber(1)]">
+            chevron_right
+          </i>
+        </div>
+
+        <div class="pokemon-typing">
+          @for (type of selectedPokemon.types; track $index) {
+            <shared-badge [text]="type.type.name | titlecase" [color]="changeBadgeColor(type.type.name)">
+            </shared-badge>
+          }
+        </div>
+      </div>
+
+      <!-- right side -->
+      <div class="right-side">
+        <div class="colored-container">
+          <!-- details options -->
+          <div class="detail-option-container">
+            <span
+              class="clickable"
+              (click)="getStats()">
+              Stats
+            </span>
+            <span
+              class="clickable"
+              (click)="getAbilities()">
+              Abilities
+            </span>
+            <span
+              class="clickable"
+              (click)="getMoves()">
+              Moves
+            </span>
+            <span
+              class="clickable"
+              (click)="getDamages()">
+              S/W
+            </span>
+          </div>
+
+          <hr>
+
+          @if(isStatsActive){
+            <div class="bar-container">
+              @for (stat of selectedPokemon.stats; track $index) {
+                  <app-stat-bar
+                    [stat]="stat"
+                    [colorIndex]="($index % 3).toString()">
+                  </app-stat-bar>
+              }
+            </div>
+          }
+          <div class="table-container">
+            @if(isAbilitiesAcive){
+              @for (ability of selectedPokemon.abilities; track $index) {
+                <div
+                  class="type"
+                  [style.background]="getTypeMoveColor(selectedPokemon!.types[0].type.name)">
+                  <div class="move-details">
+                    <span
+                      style="font-weight: bold;"
+                      [style.color]="getTextColor('normal')">
+                      {{ability.ability.name | uppercase}}
+                    </span>
+                  </div>
+                </div>
+                  }
+              }
+            @if(isMovesActive){
+              @for (move of results; track $index) {
+                <div
+                  class="type"
+                  [style.background]="getTypeMoveColor(move.type.name)">
+                  <div class="move-details">
+                    <span
+                      style="font-weight: bold;"
+                      [style.color]="getTextColor(move.type.name)">
+                      {{move.name | uppercase}}
+                    </span>
+                    @if (move.power) {
+                      <span>
+                        DMG {{move.power}}
+                      </span>
+                    }
+                      <span>
+                        PP {{move.pp}}
+                      </span>
+                  </div>
+                  <img
+                    [src]="'assets/images/' + move.type.name + '.png'"
+                    alt="{{ move.type.name }} type icon">
+                </div>
+              }
+            }
+            @if(isDamagesActive){
+              @for (type of damageFromx4; track $index){
+                <div
+                  class="type"
+                  [style.background]="getTypeMoveColor(type.name)">
+                  <div class="move-details">
+                    <span
+                      style="font-weight: bold;"
+                      [style.color]="getTextColor(type.name)">
+                      (X4)
+                    </span>
+                    <span>
+                      FROM
+                    </span>
+                  <span
+                    style="font-weight: bold;"
+                    [style.color]="getTextColor(type.name)">
+                    {{type.name | uppercase}}
+                  </span>
+                  </div>
+                </div>
+              }
+              @for (type of damageFromx2; track $index){
+                <div
+                  class="type"
+                  [style.background]="getTypeMoveColor(type.name)">
+                  <div class="move-details">
+                    <span
+                      style="font-weight: bold;"
+                      [style.color]="getTextColor(type.name)">
+                      (X2)
+                    </span>
+                    <span>
+                      FROM
+                    </span>
+                  <span
+                    style="font-weight: bold;"
+                    [style.color]="getTextColor(type.name)">
+                    {{type.name | uppercase}}
+                  </span>
+                  </div>
+                </div>
+              }
+
+              @for (type of damageTox4; track $index){
+                <div
+                  class="type"
+                  [style.background]="getTypeMoveColor(type.name)">
+                  <div class="move-details">
+                    <span
+                      style="font-weight: bold;"
+                      [style.color]="getTextColor(type.name)">
+                      (X4)
+                    </span>
+                    <span>
+                      TO
+                    </span>
+                  <span
+                    style="font-weight: bold;"
+                    [style.color]="getTextColor(type.name)">
+                    {{type.name | uppercase}}
+                  </span>
+                  </div>
+                </div>
+              }
+              @for (type of damageTox2; track $index){
+                <div
+                  class="type"
+                  [style.background]="getTypeMoveColor(type.name)">
+                  <div class="move-details">
+                    <span
+                      style="font-weight: bold;"
+                      [style.color]="getTextColor(type.name)">
+                      (X2)
+                    </span>
+                    <span>
+                      TO
+                    </span>
+                  <span
+                    style="font-weight: bold;"
+                    [style.color]="getTextColor(type.name)">
+                    {{type.name | uppercase}}
+                  </span>
+                  </div>
+                </div>
+              }
+            }
+          </div>
+        </div>
+
+      </div>
+    </div>
+  }
+
+</div>

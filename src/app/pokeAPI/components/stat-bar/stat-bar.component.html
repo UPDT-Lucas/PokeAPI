@@ -1,0 +1,11 @@
+<div class="stat-container">
+  <span>
+    {{stat.stat.name | titlecase}} ({{stat.base_stat}})
+  </span>
+  <div class="bar-container">
+    <div class="stat-bar"
+    [style.width]="(stat.base_stat / 255) * 100 + '%'"
+    [style.backgroundColor] = "getBarColor()">
+    </div>
+  </div>
+</div>

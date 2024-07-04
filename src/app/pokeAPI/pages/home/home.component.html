@@ -1,0 +1,26 @@
+@defer (on viewport) {
+  <div class="flex-container">
+  <shared-header></shared-header>
+    <div class="container">
+      <div class="left-side">
+        <div class="text-container">
+          <h1>
+            Lorem ipsum dolor sit amet consectetur.
+          </h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur. Quis eget consectetur sit semper ultrices in ut eu.
+            Vestibulum massa quis sed ut massa arcu eget.
+          </p>
+        </div>
+      </div>
+      <div class="right-side">
+        <div class="image-container">
+          <div class="rectangle"></div>
+         <img [src]="homePokemon.image" alt="gengar image" class="pokemon-img">
+        </div>
+      </div>
+    </div>
+</div>
+} @placeholder (minimum 300ms) {
+  <p style="color: white;">Cargando contenido</p>
+}

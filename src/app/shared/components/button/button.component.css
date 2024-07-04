@@ -1,0 +1,22 @@
+button {
+  background-color: transparent;
+  width: auto;
+  height: 100%;
+  text-decoration: none;
+  text-align: center;
+  padding: 2% 5%;
+  cursor: pointer;
+  border-radius: 5px;
+  border: none;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.bordered {
+  color: white;
+  border: 2px solid;
+  transition: color 0.2s ease-in-out;
+}
+
+.bordered:hover {
+  background-color: transparent;
+}
